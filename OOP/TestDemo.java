@@ -5,7 +5,7 @@ public class TestDemo {
 	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		printListAllAbiturients();
+		printListAllAbiturients();						//вывод на экран список всех абитуриентов
 		System.out.println("\nВыберите действие которое хотите выполнить:");
 		System.out.println("Введите цифру 1 - список студентов имеющих неудовлетворительные оценки");
 		System.out.println("Введите цифру 2 - список студентов у которых балл выше заданного");
@@ -30,7 +30,7 @@ public class TestDemo {
 		}
 		scan.close();
 	}
-	
+		//Метод возвращает массив объектов
 	private static Abiturient [] listAbiturients() {
 		Abiturient [] listAbiturients = new Abiturient[8];
 		listAbiturients [0] = new Abiturient(2751, "Dahnevich", "Valentina", "Alexandrovna", "Minsk", 336203650, 5);
@@ -43,7 +43,7 @@ public class TestDemo {
 		listAbiturients [7] = new Abiturient(1087, "Demeshko", "Danil", "Antonovich", "Pskov", 331604220, 4);
 		return listAbiturients;
 	}
-	
+		//сортирует по баллу и выводит n абитуриентов с max баллом
 	public static void listMaxRating(int n){
 		Arrays.sort(list);
 		tableHeader();
@@ -51,16 +51,16 @@ public class TestDemo {
 			printAbiturient(i);
 		}
 	}
-	
+		//вывод на экран одного абитуриента
 	public static void printAbiturient(int k){
 		System.out.printf("%-8s%-15s%-12s%-15s%-12s%-12s%-6s%n", list[k].getId(), list[k].getSurname(), list[k].getName(), list[k].getPatronymic(), list[k].getAddress(), list[k].getPhone(), list[k].getRating());
 	}
-	
+		//вывод на экран шапку таблицы
 	public static void tableHeader() {
 		System.out.printf("%-8s%-15s%-12s%-15s%-12s%-12s%-6s%n", "Id", "Surname", "Name", "Patronymic", "Address", "Phone", "Rating");
 		System.out.println("--------------------------------------------------------------------------------");
 	}
-	
+		//вывод на экран список всех абитуриентов
 	public static void printListAllAbiturients() {
 		System.out.println("\tСписок всех абитуриентов\n");
 		tableHeader();
@@ -68,7 +68,7 @@ public class TestDemo {
 			printAbiturient(i);
 		}
 	}
-	
+		//вывод на экран абитуриентов с баллом выше установленного
 	public static void sortingAbiturientsRating(int grade){
 		System.out.println("\n\tСписок абитуриентов с оценками выше "+"\""+grade+"\"");
 		tableHeader();
@@ -77,7 +77,7 @@ public class TestDemo {
 				printAbiturient(i);
 		}	
 	}
-	
+		//вывод на экран двоишников
 	public static void badRatings() {
 		System.out.println("\n\tНеудовлетворительные оценки получили:");
 		tableHeader();
