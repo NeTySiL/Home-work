@@ -1,5 +1,4 @@
-
-public class Abiturient {
+public class Abiturient implements Comparable<Abiturient> {
 	
 	private int id;
 	private String surname;
@@ -12,14 +11,26 @@ public class Abiturient {
 	public Abiturient() {
 	}
 	public Abiturient(int id, String surname, String name, String patronymic, String address, int phone, int rating) {
-		this.id = id;
-		this.surname = surname;
-		this.name = name;
-		this.patronymic = patronymic;
-		this.address = address;
-		this.phone = phone;
-		this.rating = rating;
+		setId(id);
+		setSurname(surname);
+		setName(name);
+		setPatronymic(patronymic);
+		setAddress(address);
+		setPhone(phone);
+		setRating(rating);
 	}
+	
+	@Override
+	public int compareTo (Abiturient obj){
+		Abiturient tmp = (Abiturient)obj;
+		if (this.getRating()<tmp.getRating())
+			return -1;
+		else if (this.getRating()>tmp.getRating())
+			return 1;
+		else
+			return 0;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -32,7 +43,7 @@ public class Abiturient {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	public String getName() {
+	public  String getName() {
 		return name;
 	}
 	public void setName(String name) {
@@ -62,6 +73,4 @@ public class Abiturient {
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
-	
-
 }
